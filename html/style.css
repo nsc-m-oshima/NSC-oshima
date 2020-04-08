@@ -1,0 +1,55 @@
+header {
+    background: #c2c2c2;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-box {
+    width: 940px;
+    margin: auto;
+    position: relative;
+    text-align: center;
+}
+
+#img {
+width: 120px;
+height: 120px;
+}
+
+main {
+    height: 600px;
+    background: #ffffff;
+    padding: 20px;
+}
+
+.like {
+    width: 940px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.like div {
+    display: inline-block;
+    text-align: center;
+    width: 40%;
+    vertical-align: top;
+    margin: 0 3%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+
+    border: 2px #000000 solid;
+    border-radius: 15px;
+}
+
+footer {
+    background: #c2c2c2;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-box {
+    font-size: 10pt;
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
