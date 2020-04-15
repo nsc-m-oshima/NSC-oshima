@@ -1,71 +1,99 @@
-class Game {
-    constructor(name, hp, mp, weapen) {
+class Human {
+    constructor(name, hp, mp) {
         this._name = name;
         this._hp = hp;
         this._mp = mp;
-        this._weapen = weapen;
     }
-    get name() {
-        return this._name;
-    }
-
-    get hp() {
-        return this._hp;
-    }
-
-    get mp() {
-        return this._mp;
-    }
-
-    get weapen() {
-        return this._weapen;
-    }
-
-    attack() {
-        console.log(`${this.name}が攻撃しました`);
-    }
-
-    spell() {
-        console.log(`${this.name}が呪文を唱えました`);
-    }
-
-    recovery() {
-        console.log(`${this.name}のHPが回復しました`);
-    }
-
-    revived() {
-        console.log(`${this.name}が蘇りました`);
-    }
-
-    beast() {
-        console.log(`${this.name}が蘇りました`);
+    attack(target) {
+        console.log(this.name, 'が', target, 'に攻撃した');
     }
 }
 
-let yuusya = new Game(
-    '勇者',
-    '200',
-    '100',
-    '剣'
-);
+class Yuusya extends Human {
+    constructor(name, hp, mp, weapon) {
+        super(name, hp, mp);
+        this.weapon = weapon;
+    }
+}
 
-let wizard = new Game(
-    '魔法使い',
-    '100',
-    '50',
-    '剣'
-);
+class Wizard extends Human {
+    constructor(name, hp, mp, weapon) {
+        super(name, hp, mp);
+        this.weapon = weapon;
+    }
+    castSpell(spellName, target) {
+        console.log(this.name, 'が', target, 'に', spellName, 'の呪文を唱えた');
+    }
+}
 
-let cleric = new Game(
-    'ヒーラー',
-    '100',
-    '50',
-    '剣'
-);
+class Cleric extends Human {
+    constructor(name, hp, mp, weapon) {
+        super(name, hp, mp);
+        this.weapon = weapon;
+    }
+    heal(target) {
+        console.log(this.name, 'が', target, 'を回復した');
+    }
+}
 
-let berseker = new Game(
-    'バーサーカー',
-    '200',
-    '100',
-    '剣'
-);
+class Berseker extends Human {
+    constructor(name, hp, mp, weapon) {
+        super(name, hp, mp);
+        this.weapon = weapon;
+    }
+    furryMode() {
+        console.log(this.name, 'が獣化して攻撃力アップ');
+    }
+}
+
+class Monster {
+    constructor(name, hp, mp) {
+        this._name = name;
+        this._hp = hp;
+        this._mp = mp;
+    }
+    attack(target) {
+        console.log(this.name, 'が', target, 'に攻撃した');
+    }
+
+    runAwey() {
+        console.log(this.name, 'は逃げ出した');
+    }
+
+}
+
+
+class Slime extends Monster {
+    constructor(name, hp, mp, weapon) {
+        super(name, hp, mp);
+        this.weapon = "";
+    }
+    split() {
+        console.log(this.name, 'が分身した')
+    }
+}
+
+class Ork extends Monster {
+    constructor(name, hp, mp, weapon) {
+        super(name, hp, mp);
+        this.weapon = weapon;
+    }
+}
+
+class LastBoss extends Monster {
+    constructor(name, hp, mp, weapon) {
+        super(name, hp, mp);
+        this.weapon = weapon;
+    }
+    runAwey() {
+        // console.log('このモンスターは逃げない')
+    }
+
+    revive() {
+        console.log(this.name, 'はよみがえった')
+    }
+}
+
+let boss = new LastBoss('LastBoss', 1000, 5000, 'ring');
+
+let Yuusya = new Yuusya('シン', 500, 150, "やり");
